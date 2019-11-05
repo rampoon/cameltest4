@@ -1,0 +1,44 @@
+2019-10-31 16:15:15,213 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [se.rampoon.example4.SpringBootTestApplicationTest], using SpringBootContextLoader
+2019-10-31 16:15:15,232 INFO o.s.t.c.s.AbstractContextLoader [main] Could not detect default resource locations for test class [se.rampoon.example4.SpringBootTestApplicationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-10-31 16:15:15,235 INFO o.s.t.c.s.AnnotationConfigContextLoaderUtils [main] Could not detect default configuration classes for test class [se.rampoon.example4.SpringBootTestApplicationTest]: SpringBootTestApplicationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2019-10-31 16:15:15,484 INFO o.s.b.t.c.SpringBootTestContextBootstrapper [main] Found @SpringBootConfiguration se.rampoon.example4.SpringBootCamelActiveMQ for test class se.rampoon.example4.SpringBootTestApplicationTest
+2019-10-31 16:15:15,720 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-10-31 16:15:15,755 INFO o.s.t.c.s.AbstractTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4808bc9b, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@70e38ce1, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2ca923bb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@13df2a8c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ebea008, org.springframework.test.context.transaction.TransactionalTestExecutionListener@72d6b3ba, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1787f2a0, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7de62196, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@163370c2, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@51bf5add, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@7905a0b8, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@35a3d49f]
+2019-10-31 16:15:16,695 WARN o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer [main] 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/home/matjav/.m2/repository/org/json/json/20171018/json-20171018.jar!/org/json/JSONObject.class
+	jar:file:/home/matjav/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2019-10-31 16:15:16,761 INFO o.s.b.StartupInfoLogger [main] Starting SpringBootTestApplicationTest on matjav-ubuntu with PID 13982 (started by matjav in /home/matjav/repository/Test/cameltest4)
+2019-10-31 16:15:16,771 INFO o.s.b.SpringApplication [main] The following profiles are active: artemismq
+2019-10-31 16:15:20,245 INFO o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [main] Bean 'org.apache.camel.spring.boot.CamelAutoConfiguration' of type [org.apache.camel.spring.boot.CamelAutoConfiguration$$EnhancerBySpringCGLIB$$5d1f572] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-10-31 16:15:22,463 INFO o.s.s.c.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:15:23,514 INFO o.a.c.i.c.DefaultTypeConverter [main] Type converters loaded (core: 195, classpath: 4)
+2019-10-31 16:15:24,733 INFO o.m.p.j.JmsPoolConnectionFactory [main] Provided ConnectionFactory implementation is JMS 2.0+ capable.
+2019-10-31 16:15:25,938 INFO o.s.b.a.e.w.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-10-31 16:15:26,426 INFO o.a.c.s.b.RoutesCollector [main] Loading additional Camel XML routes from: classpath:camel/*.xml
+2019-10-31 16:15:26,428 INFO o.a.c.s.b.RoutesCollector [main] Loading additional Camel XML rests from: classpath:camel-rest/*.xml
+2019-10-31 16:15:26,505 INFO o.a.c.i.DefaultCamelContext [main] Apache Camel 2.24.1 (CamelContext: SpringBootCamelActiveMQ_matjav) is starting
+2019-10-31 16:15:26,509 INFO o.a.c.m.ManagedManagementStrategy [main] JMX is enabled
+2019-10-31 16:15:27,180 INFO o.a.c.i.DefaultCamelContext [main] StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-10-31 16:15:27,344 INFO o.a.c.s.b.RoutesCollector$1 [main] Starting CamelMainRunController to ensure the main thread keeps running
+2019-10-31 16:15:27,682 INFO o.a.c.i.DefaultCamelContext [main] Route: FromActiveMQToFileRoute started and consuming from: activemq://queue:matjav_test
+2019-10-31 16:15:27,687 INFO o.a.c.i.DefaultCamelContext [main] Total 1 routes, of which 1 are started
+2019-10-31 16:15:27,691 INFO o.a.c.i.DefaultCamelContext [main] Apache Camel 2.24.1 (CamelContext: SpringBootCamelActiveMQ_matjav) started in 1.183 seconds
+2019-10-31 16:15:27,709 INFO o.s.b.StartupInfoLogger [main] Started SpringBootTestApplicationTest in 11.83 seconds (JVM running for 14.768)
+2019-10-31 16:15:28,169 INFO s.r.e.b.HeaderDisplayer [main] MessageProcessor.handleMessage called...MessageiD=ID-matjav-ubuntu-1572534923169-0-1
+2019-10-31 16:15:28,170 INFO s.r.e.b.HeaderDisplayer [main] MessageProcessor.handleMessage: Message headers
+2019-10-31 16:15:28,170 INFO s.r.e.b.HeaderDisplayer [main] ***********************************************
+2019-10-31 16:15:28,423 INFO o.a.c.m.MainSupport$HangupInterceptor [Camel Thread #1 - CamelHangupInterceptor] Received hang up - stopping the main instance.
+2019-10-31 16:15:28,440 INFO o.a.c.i.DefaultCamelContext [Camel Thread #1 - CamelHangupInterceptor] Apache Camel 2.24.1 (CamelContext: SpringBootCamelActiveMQ_matjav) is shutting down
+2019-10-31 16:15:28,442 INFO o.a.c.i.DefaultShutdownStrategy [Camel Thread #1 - CamelHangupInterceptor] Starting to graceful shutdown 1 routes (timeout 300 seconds)
+2019-10-31 16:15:28,549 INFO o.a.c.i.DefaultShutdownStrategy$ShutdownTask [Camel (SpringBootCamelActiveMQ_matjav) thread #3 - ShutdownTask] Route: FromActiveMQToFileRoute shutdown complete, was consuming from: activemq://queue:matjav_test
+2019-10-31 16:15:28,550 INFO o.a.c.i.DefaultShutdownStrategy [Camel Thread #1 - CamelHangupInterceptor] Graceful shutdown of 1 routes completed in 0 seconds
+2019-10-31 16:15:28,564 INFO o.a.c.m.MainLifecycleStrategy [Camel Thread #1 - CamelHangupInterceptor] CamelContext: SpringBootCamelActiveMQ_matjav has been shutdown, triggering shutdown of the JVM.
+2019-10-31 16:15:28,594 INFO o.s.s.c.ExecutorConfigurationSupport [Thread-5] Shutting down ExecutorService 'applicationTaskExecutor'
+2019-10-31 16:15:28,597 INFO o.a.c.i.DefaultCamelContext [Camel Thread #1 - CamelHangupInterceptor] Apache Camel 2.24.1 (CamelContext: SpringBootCamelActiveMQ_matjav) uptime 2.092 seconds
+2019-10-31 16:15:28,598 INFO o.a.c.i.DefaultCamelContext [Camel Thread #1 - CamelHangupInterceptor] Apache Camel 2.24.1 (CamelContext: SpringBootCamelActiveMQ_matjav) is shutdown in 0.158 seconds
