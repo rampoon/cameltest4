@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>se.rampoon.example4</groupId>
+  <groupId>se.rampoon.example3</groupId>
   <artifactId>cameltest4</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 
   <name>cameltest4</name>
-  <parent>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.1.7.RELEASE</version>
-  </parent>
 
   <properties>
     <!-- encoding -->
@@ -21,204 +16,67 @@
     <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
     <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
     <!-- jvm -->
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
-    <!-- frameworks -->
-    <camel.version>2.24.1</camel.version>
-    <cxf.version>3.2.7</cxf.version>
-    <log4j.version>2.12.1</log4j.version>
-    <spring.boot.version>2.1.7.RELEASE</spring.boot.version>
-    <!-- plugins -->
-    <jar.version>3.1.2</jar.version>
-    <jacoco.version>0.8.4</jacoco.version>
-    <resources.version>3.1.0</resources.version>
-    <!-- rpm package configuration -->
-    <rpm.package.name>ppm-${project.artifactId}</rpm.package.name>
-    <rpm.package.version>${project.version}</rpm.package.version>
-    <rpm.package.install.dir>/var/opt/matjav_cameltest3</rpm.package.install.dir>
-    <rpm.user.group>matjav_cameltest4</rpm.user.group>
+
   </properties>
 
   <dependencyManagement>
-    <dependencies>
-      <!-- integration and routing -->
-      <dependency>
-        <groupId>org.apache.camel</groupId>
-        <artifactId>camel-spring-boot-dependencies</artifactId>
-        <version>${camel.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
 
-      <!-- logging -->
+    <dependencies>
+      <!-- Camel BOM -->
       <dependency>
-        <groupId>org.apache.logging.log4j</groupId>
-        <artifactId>log4j-bom</artifactId>
-        <version>${log4j.version}</version>
-        <scope>import</scope>
+        <groupId>org.apache.camel.springboot</groupId>
+        <artifactId>camel-spring-boot-bom</artifactId>
+        <version>3.22.1</version>
         <type>pom</type>
+        <scope>import</scope>
       </dependency>
+      <!-- ... other BOMs or dependencies ... -->
     </dependencies>
+
   </dependencyManagement>
 
   <dependencies>
-    <!-- Spring Boot -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-tomcat</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-undertow</artifactId>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-spring-boot-starter</artifactId>
     </dependency>
 
-    <!-- metrics and JMX -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-registry-prometheus</artifactId>
-      <version>1.12.2</version>
-    </dependency>
-    <dependency>
-      <groupId>org.jolokia</groupId>
-      <artifactId>jolokia-core</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.hawt</groupId>
-      <artifactId>hawtio-springboot</artifactId>
-      <version>3.0.1</version>
-    </dependency>
-
-    <!-- ActiveMQ Client -->
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-activemq -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-activemq</artifactId>
+      <version>2.7.8</version>
     </dependency>
 
-    <!-- JmsPoolConnectionFactory -->
-    <dependency>
-      <groupId>org.messaginghub</groupId>
-      <artifactId>pooled-jms</artifactId>
-    </dependency>
 
-    <!-- Camel -->
-    <dependency>
-      <groupId>org.apache.activemq</groupId>
-      <artifactId>activemq-camel</artifactId>
-      <version>5.16.7</version>
-    </dependency>
-
-    <!--To be able to use Spring boot auto configuration-->
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-micrometer-starter</artifactId>
-    </dependency>
-
-    <!-- LOGGER -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <exclusions>
-        <!--
-            Exclude logback, use log4j2 instead (dependency below)
-            reference: https://www.baeldung.com/spring-boot-logging
-        -->
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-log4j2</artifactId>
-    </dependency>
-
-    <!-- test -->
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <!-- <version>3.2.3</version> -->
+      <version>2.4.13</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
-      <groupId>org.apache.camel</groupId>
-      <artifactId>camel-test-spring</artifactId>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- ActiveMQ Client -->
+
+<!--    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-camel</artifactId>
+      <version>5.16.7</version>
+    </dependency> -->
+
 
   </dependencies>
-
-  <!-- Plugin management -->
-  <build>
-
-    <pluginManagement>
-      <plugins>
-        <!--
-        Make the JAR spring boot friendly.
-        Reference: https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html
-         -->
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
-
-        <!-- create rpm package -->
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>rpm-maven-plugin</artifactId>
-
-          <extensions>false</extensions>
-          <executions>
-            <execution>
-              <id>create-rpm</id>
-              <phase>package</phase>
-              <goals>
-                <goal>attached-rpm</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <license>GPLv19</license>
-            <distribution>Test RPM</distribution>
-            <name>${rpm.package.name}</name>
-            <version>${project.version}</version>
-            <group>matjav</group>
-            <packager>${rpm.user.group}</packager>
-            <defaultDirmode>755</defaultDirmode>
-            <defaultFilemode>755</defaultFilemode>
-            <needarch>x86_64</needarch>
-            <mappings>
-              <mapping>
-                <directory>${rpm.package.install.dir}</directory>
-                <sources>
-                  <source>
-                    <location>${project.build.directory}</location>
-                    <includes>
-                      <include>*.jar</include>
-                    </includes>
-                  </source>
-                </sources>
-              </mapping>
-            </mappings>
-          </configuration>
-        </plugin>
-
-      </plugins>
-    </pluginManagement>
-  </build>
 </project>

@@ -1,26 +1,20 @@
 package se.rampoon.example4;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.ExchangeBuilder;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 import se.rampoon.example4.beans.BodyUtils;
 import se.rampoon.example4.beans.HeaderDisplayer;
 import se.rampoon.example4.beans.HeaderUtils;
 import se.rampoon.example4.beans.UpperCaseConverter;
 
-import java.util.HashMap;
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("artemismq")
 public class SpringBootTestApplicationTest{
